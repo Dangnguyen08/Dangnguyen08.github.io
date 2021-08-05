@@ -65,7 +65,7 @@ let student = [
 let arr1 = [0,2,4,6,8]
 let arr2 = [1,3,5,7]
 
-// a)
+// // a)
 // let result = []
 // arr1.forEach(num => {
 //     if(num>3){
@@ -95,4 +95,18 @@ let arr2 = [1,3,5,7]
 // console.log(arr)
 
 // c)
-// e chịu, e k biết làm :((
+// let cauC = (arr1, arr2)=>{
+//     let result = []
+//     if(arr1.length > arr2.length){
+//         for(let i = 0; i < arr1.length; i++){
+//             if(arr2[i]){
+//                 result.push(arr1[i])
+//                 result.push(arr2[i])
+//             }else{
+//                 result.push(arr1[i])
+//             }
+//         }
+//     }else{
+
+//     }
+// }
