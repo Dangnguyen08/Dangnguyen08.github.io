@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <span id="a">00.00</span>
+        <button onclick="updateTime()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <br>
+        <span id="b">00.00</span>
+        <button onclick="updateTime2()">Start</button>
+        <button onclick="stop2()">Stop</button>
+        <br>
+        <span id="c">00.00</span>
+        <button onclick="updateTime3()">Start</button>
+        <button onclick="stop3()">Stop</button>
+    </div>
+
+    <script>
+// Time1
+        var m = 0;
+        var s = 0;
+        let time = document.getElementById("a")
+
+        let setTime=()=>{
+            let ss = 0
+            let mm = 0
+
+            if(m<10){
+                mm = "0" + m
+            }else{
+                mm = m
+            }
+            if(s<10){
+                ss = "0" + s
+            }else{
+                ss = s
+            }
+            s++;
+            if(s>59){
+                m++
+                s=0
+            }
+            time.innerHTML = mm + ":" + ss
+        }
+        let updateTime = ()=>{
+            var u = setInterval(setTime, 1000);
+        }
+        let stop = ()=>{
+            m = 0
+            s = 0
+            clearInterval(u)
+            time.innerHTML = "00:00"
+        }
+// Time2
+        var d = 0;
+        var e = 0;
+        let time2 = document.getElementById("b")
+
+        let setTime2=()=>{
+            let ee = 0
+            let dd = 0
+
+            if(d<10){
+                dd = "0" + d
+            }else{
+                dd = d
+            }
+            if(e<10){
+                ee = "0" + e
+            }else{
+                ee = e
+            }
+            e++;
+            if(e>59){
+                d++
+                e=0
+            }
+            time.innerHTML = dd + ":" + ee
+        }
+        let updateTime2 = ()=>{
+            var l = setInterval(setTime2, 1000);
+        }
+        let stop2 = ()=>{
+            d = 0
+            e = 0
+            clearInterval(l)
+            time2.innerHTML = "00:00"
+        }
+// Time3
+        var i = 0;
+        var n = 0;
+        let time3 = document.getElementById("c")
+
+        let setTime3=()=>{
+            let nn = 0
+            let ii = 0
+
+            if(i<10){
+                ii = "0" + i
+            }else{
+                ii = i
+            }
+            if(n<10){
+                nn = "0" + n
+            }else{
+                nn = n
+            }
+            n++;
+            if(n>59){
+                i++
+                n=0
+            }
+            time.innerHTML = ii + ":" + nn
+        }
+        let updateTime3 = ()=>{
+            var f = setInterval(setTime3, 1000);
+        }
+        let stop3 = ()=>{
+            i = 0
+            n = 0
+            clearInterval(f)
+            time3.innerHTML = "00:00"
+        }
+    </script>
+
+    <!-- <script src="./main.js"></script> -->
+</body>
+</html>

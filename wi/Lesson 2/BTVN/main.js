@@ -34,7 +34,11 @@
 // })
 // console.log(arrOdds)
 
-// Câu 4: Em đọc đề xong e k hiểu gì hết :))
+// Câu 4: 
+let result = []
+for(let i=a; i<b; i++){
+    result.push(arr[i])
+}
 
 // Câu 5: Bài 4 e k hiểu thì bài 5 em cũng k rồi :))
 
