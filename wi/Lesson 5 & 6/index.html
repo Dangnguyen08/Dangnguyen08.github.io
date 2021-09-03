@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+    <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyC5aeDAMCCTX4R_r8tMPx7_AhrxKrzPPUE",
+          authDomain: "chat-83b36.firebaseapp.com",
+          projectId: "chat-83b36",
+          storageBucket: "chat-83b36.appspot.com",
+          messagingSenderId: "363094203346",
+          appId: "1:363094203346:web:78e0d93f6314a5663b860b",
+          measurementId: "G-SK6NE8HG4R"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        firebase.Analytics();
+
+      </script>
+      <script src="./index.js" type="module"></script>
+</body>
+</html>
