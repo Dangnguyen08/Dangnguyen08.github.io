@@ -55,6 +55,11 @@ class Login {
         // Signed in
         var user = userCredential.user;
         // ...
+        if(user.emailVerifed){
+            window.open("../chat.html")
+        }else{
+            alert("Byee");
+        }
         const chat = new Chat();
         setScreen(chat)
         })
