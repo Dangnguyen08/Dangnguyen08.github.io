@@ -51,8 +51,15 @@ async function init() {
     if (user) {
       let email = user.email;
       let username = user.displayName;
-      console.log(user);
-      renderUserInfo({name:username })
+
+      let formUpload = document.querySelector("#formUpload");
+
+      formUpload.onsubmit = async (e) => {
+        e.preventDefault();
+        uploadPost(email,username )
+      };
+
+      renderUserInfo({ name: username });
       getpost();
     } else {
       alert("bạn cần phải đăng nhập");
@@ -61,10 +68,10 @@ async function init() {
   });
 }
 
-let renderUserInfo = (data)=>{
-    document.getElementById("userName1").innerHTML = data.name;
-    document.getElementById("userName2").innerHTML = data.name;
-}
+let renderUserInfo = (data) => {
+  document.getElementById("userName1").innerHTML = data.name;
+  document.getElementById("userName2").innerHTML = data.name;
+};
 
 let renderPost = (data) => {
   let dom = document.querySelector(".postwrapper");
@@ -98,3 +105,83 @@ let renderPost = (data) => {
     dom.innerHTML += html;
   }
 };
+
+let uploadPost = async (email, username) => {
+  const ref = await firebase.storage().ref();
+  const file = document.querySelector("#photo").files[0];
+
+  const metadata = {
+    contentType: file.type,
+  };
+  const name = file.name;
+  const imgUploaded = ref.child(name).put(file, metadata);
+
+  imgUploaded
+    .then((snapshot) => snapshot.ref.getDownloadURL())
+    .then((url) => {
+      let content = formUpload.content.value;
+      let imgUrl = url;
+
+      let data = {
+        content: content,
+        ava: "https://picsum.photos/200",
+        username: username,
+        img: imgUrl,
+        like: 100,
+        owner: email,
+        share: 50,
+        time: getRealTime(),
+        comment: 50,
+      };
+      addConversation(data)
+    })
+    .catch((err) => {
+      alert(err);
+    });
+};
+
+let getRealTime = () => {
+  let date = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let s = date.getSeconds();
+  let d = days[date.getUTCDay()];
+
+  let h_ = "";
+  let m_ = "";
+  let s_ = "";
+
+  if (h < 10) {
+    h_ = "0" + h;
+  } else {
+    h_ = h;
+  }
+  if (m < 10) {
+    m_ = "0" + m;
+  } else {
+    m_ = m;
+  }
+  if (s < 10) {
+    s_ = "0" + s;
+  } else {
+    s_ = s;
+  }
+
+  let time = h_ + ":" + m_ + ":" + s_ + " " + d;
+
+  return time;
+};
+
+
+let addConversation = async (data)=>{
+  await firebase.firestore().collection('Socialbooks').add(data)
+}

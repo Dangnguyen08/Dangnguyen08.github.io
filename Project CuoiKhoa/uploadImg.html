@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   <input type="file" id="photo">
+   <button onclick="uploadImg()">Post</button>
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ 
+ 
+ 
+     <script>
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         const firebaseConfig = {
+             apiKey: "AIzaSyBhQtYNDOeFF7UZND0POQVL0t8mmF4kKlI",
+             authDomain: "project-jsi.firebaseapp.com",
+             projectId: "project-jsi",
+             storageBucket: "project-jsi.appspot.com",
+             messagingSenderId: "1034190372511",
+             appId: "1:1034190372511:web:9b5a6c80b272a1cb792caa",
+             measurementId: "G-W2TTR9C24Q"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         firebase.analytics();
+     </script>
+
+
+   <script>
+       let uploadImg = async ()=>{
+        const ref = await firebase.storage().ref();
+        const file = document.querySelector("#photo").files[0]
+
+        const metadata = {
+            contentType: file.type,
+        }
+        const name = file.name
+        const imgUploaded = ref.child(name).put(file, metadata)
+        imgUploaded.then(snapshot=> snapshot.ref.getDownloadURL()).then(url=> {
+            return url
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+       }
+   </script>
+    
+</body>
+</html>

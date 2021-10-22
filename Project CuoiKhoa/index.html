@@ -131,12 +131,15 @@
                 </div>
 
                 <div class="post-input-container">
-                    <textarea rows="3" placeholder="What's on your mind, Dang?"></textarea>
-                    <div class="add-post-links">
-                        <a href="#"><img src="images/live-video.png">Live Video</a>
-                        <a href="#"><img src="images/photo.png"><input type="file"></a>
-                        <button>Post</button>
-                    </div>
+                    <form id="formUpload" >
+                        <textarea  name ="content"rows="3" placeholder="What's on your mind, Dang?"></textarea>
+                        <div class="add-post-links">
+                            <a href="#"><img src="images/live-video.png">Live Video</a>
+                            <a href="#"><img src="images/photo.png"><input id="photo" type="file"></a>
+                            <button type="submit">Post</button>
+                        </div>
+                    </form>
+                   
 
                 </div>
 
@@ -224,6 +227,7 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 
 
