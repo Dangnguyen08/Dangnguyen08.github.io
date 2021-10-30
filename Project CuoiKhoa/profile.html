@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialBook - Profile</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/f61ae3abf4.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><img src="images/notification.png" alt=""></li>
+                <li><img src="images/inbox.png" alt=""></li>
+                <li><img src="images/video.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+
+            <div class="search-box">
+                <img src="images/search.png">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+                <img src="images/profile-pic.png">
+                <p id="userName1">Nguyễn Cường</p>
+            </div>
+
+        </div>
+        <!-- settings-menu -->
+        <div class="settings-menu">
+            <div id="dark-btn">
+                <span></span>
+            </div>
+            <div class="settings-menu-inner">
+                <div class="user-profile">
+                    <img src="images/profile-pic.png">
+                    <div>
+                        <p id="userName2">Nguyen Dang</p>
+                        <a href="#">See your profile</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="user-profile">
+                    <img src="images/feedback.png">
+                    <div>
+                        <p>Give Feedback</p>
+                        <a href="#">Help us to improve the new design</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="settings-links">
+                    <img src="images/setting.png" alt="" class="settings-icon">
+                    <a href="#">Settings & Privacy <img src="images/arrow.png" width="10px"></a>
+                </div>
+                <div class="settings-links">
+                    <img src="images/help.png" alt="" class="settings-icon">
+                    <a href="#">Help & Support <img src="images/arrow.png" width="10px"></a>
+                </div>
+                <div class="settings-links">
+                    <img src="images/display.png" alt="" class="settings-icon">
+                    <a href="#">Display & Accessibility <img src="images/arrow.png" width="10px"></a>
+                </div>
+                <div class="settings-links">
+                    <img src="images/logout.png" alt="" class="settings-icon">
+                    <a href="./login.html">Display & Accessibility <img src="images/arrow.png" width="10px"></a>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Profile Page -->
+    <div class="profile-container">
+        <img src="./images/cover.png" class="cover-img">
+        <div class="profile-details">
+            <div class="pd-left">
+                <div class="pd-row">
+                    <img src="./images/profile.png" class="pd-image">
+                    <div>
+                        <h3>Jack Nicholson</h3>
+                        <p>120 Friends</p>
+                        <img src="./images/member-1.png" alt="">
+                        <img src="./images/member-2.png" alt="">
+                        <img src="./images/member-3.png" alt="">
+                        <img src="./images/member-4.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="pd-right">
+                <button type="button"><img src="./images/add-friends.png" alt="">Friends</button>
+                <button type="button"><img src="./images/message.png" alt="">Message</button>
+                <br>
+                <a href=""><img src="./images/more.png"></a>
+            </div>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-col">
+                <div class="profile-intro">
+                    <h3>Intro</h3>
+                    <p class="intro-text">Believe in yourself <img src="./images/feeling.png" alt=""></p>
+                    <hr>
+                    <ul>
+                        <li><img src="./images/profile-job.png" alt="">Director at ...</li>
+                        <li><img src="./images/profile-study.png" alt="">Studied at Vinschool</li>
+                        <li><img src="./images/profile-home.png" alt="">Went to Hanoi</li>
+                        <li><img src="./images/profile-location.png" alt="">From Vietnam</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="post-col">
+                <div class="write-post-container">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png">
+                        <div>
+                            <p>Nguyen Dang</p>
+                            <small>Public <i class="fas fa-caret-down"></i></small>
+                        </div>
+                    </div>
+
+                    <div class="post-input-container">
+                        <form id="formUpload">
+                            <textarea name="content" rows="3" placeholder="What's on your mind, Dang?"></textarea>
+                            <div class="add-post-links">
+                                <a href="#"><img src="images/live-video.png">Live Video</a>
+                                <a href="#"><img src="images/photo.png"><input id="photo" type="file"></a>
+                                <button type="submit">Post</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+                <div class="postwrapper">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="footer">
+        <p>Copyright 2021 - MindX</p>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
