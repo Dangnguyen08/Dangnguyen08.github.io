@@ -51,6 +51,7 @@ async function init() {
     if (user) {
       let email = user.email;
       let username = user.displayName;
+<<<<<<< Updated upstream
 
       let formUpload = document.querySelector("#formUpload");
 
@@ -60,6 +61,12 @@ async function init() {
       };
 
       renderUserInfo({ name: username });
+=======
+      
+      let formUpload = document.querySelector("formUpload")
+
+      renderUserInfo({name:username })
+>>>>>>> Stashed changes
       getpost();
     } else {
       alert("bạn cần phải đăng nhập");
@@ -106,6 +113,7 @@ let renderPost = (data) => {
   }
 };
 
+<<<<<<< Updated upstream
 let uploadPost = async (email, username) => {
   const ref = await firebase.storage().ref();
   const file = document.querySelector("#photo").files[0];
@@ -184,4 +192,21 @@ let getRealTime = () => {
 
 let addConversation = async (data)=>{
   await firebase.firestore().collection('Socialbooks').add(data)
+=======
+let uploadIMG = async ()=>{
+  const ref = await firebase.storage().ref();
+  const file = document.querySelector("#photo").file[0]
+
+  const metadata = {
+    contentType: file.type,
+  }
+  const name = file.name
+  const imgUploaded = ref.child(name).put(file, metadata)
+  imgUploaded.then(snapshot=> snapshot.ref.getDownloadURL()).then(url =>{
+    return url
+  })
+  .catch(err=>{
+    alert(err)
+  });
+>>>>>>> Stashed changes
 }
