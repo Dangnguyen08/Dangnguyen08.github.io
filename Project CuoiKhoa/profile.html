@@ -84,9 +84,9 @@
         <div class="profile-details">
             <div class="pd-left">
                 <div class="pd-row">
-                    <img src="./images/profile.png" class="pd-image">
+                    <img id="current_img" src="./images/profile.png" class="pd-image">
                     <div>
-                        <h3>Jack Nicholson</h3>
+                        <h3 id="currentName"></h3>
                         <p>120 Friends</p>
                         <img src="./images/member-1.png" alt="">
                         <img src="./images/member-2.png" alt="">
@@ -120,20 +120,17 @@
             <div class="post-col">
                 <div class="write-post-container">
                     <div class="user-profile">
-                        <img src="images/profile-pic.png">
-                        <div>
-                            <p>Nguyen Dang</p>
-                            <small>Public <i class="fas fa-caret-down"></i></small>
-                        </div>
+                        <h1>Chỉnh sửa trang cá nhân</h1>
                     </div>
 
                     <div class="post-input-container">
-                        <form id="formUpload">
-                            <textarea name="content" rows="3" placeholder="What's on your mind, Dang?"></textarea>
+                        <form id="updateProfile">
+                            <label for="">Tên của bạn</label>
+                            <textarea name="name" rows="3" placeholder="Enter Your New Name"></textarea>
                             <div class="add-post-links">
-                                <a href="#"><img src="images/live-video.png">Live Video</a>
+                                
                                 <a href="#"><img src="images/photo.png"><input id="photo" type="file"></a>
-                                <button type="submit">Post</button>
+                                <button type="submit">Update</button>
                             </div>
                         </form>
 
@@ -153,7 +150,37 @@
     <div class="footer">
         <p>Copyright 2021 - MindX</p>
     </div>
-    <script src="./script.js"></script>
+
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ 
+ 
+ 
+     <script>
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         const firebaseConfig = {
+             apiKey: "AIzaSyBhQtYNDOeFF7UZND0POQVL0t8mmF4kKlI",
+             authDomain: "project-jsi.firebaseapp.com",
+             projectId: "project-jsi",
+             storageBucket: "project-jsi.appspot.com",
+             messagingSenderId: "1034190372511",
+             appId: "1:1034190372511:web:9b5a6c80b272a1cb792caa",
+             measurementId: "G-W2TTR9C24Q"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         firebase.analytics();
+     </script>
+    <script src="./profile.js"></script>
 </body>
 
 </html>
